@@ -42,3 +42,20 @@ ________________________________________________________________________________
         3)random_state:
             Ensures consistent results across runs, critical for debugging and reproducibility.
             Changing this affects randomness in the model and, consequently, predictions.
+
+
+___________________________________________________________________________________________________    
+___________________________________________________________________________________________________    
+        
+
+Day 9 (Phase 2)
+    1)learned about  [Accuracy,F1 Score,ROC AUC Score,Recall Score] to evaluate classification model performance
+    2)Plotting of ROC(Receiver Operating Characteristic) Curve that illustrates the diognostic ability of binary classification model.
+        #It plots the True Positive Rate (TPR) against the False Positive Rate (FPR) at various thresholds.
+
+___________________________________________________________________________________________________    
+    Importants
+        1)Always set random_state: This ensures reproducibility, consistency, and fairness when evaluating model performance.
+
+___________________________________________________________________________________________________    
+    
