@@ -59,11 +59,23 @@ ________________________________________________________________________________
 
 ___________________________________________________________________________________________________    
     
-Day 10 Phase(2)
+Day 10 Phase(1)
     1) feature importance in classisctaion models
 ___________________________________________________________________________________________________    
 
-Day 11 Phase(2)
+Day 11 Phase(1)
 
 
-Day 12 Phase(2)
+Day 12 Phase(1)
+    --- Bagging (Bootstrap Aggregating)
+        How it works: Trains multiple models on bootstrapped samples of the dataset and aggregates their predictions (e.g., Random Forest).
+        Performance: Showed excellent results in reducing overfitting and handling noisy data.
+    --- Boosting
+        How it works: Models are trained sequentially, where each model learns from the errors of the previous one. (e.g., AdaBoost, Gradient Boosting, XGBoost).
+        Performance: Achieved higher accuracy on the dataset, especially after hyperparameter tuning, but required careful management to prevent overfitting.
+    --- Stacking
+        How it works: Combines predictions from multiple diverse base models using a meta-model.
+        Performance: Delivered the most balanced results, leveraging the strengths of different algorithms for better generalization.
+
+Day 13 (Phase 1)
+    
