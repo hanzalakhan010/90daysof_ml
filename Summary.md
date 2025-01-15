@@ -65,6 +65,7 @@ ________________________________________________________________________________
 
 Day 11 Phase(1)
 
+___________________________________________________________________________________________________    
 
 Day 12 Phase(1)
     --- Bagging (Bootstrap Aggregating)
@@ -76,6 +77,27 @@ Day 12 Phase(1)
     --- Stacking
         How it works: Combines predictions from multiple diverse base models using a meta-model.
         Performance: Delivered the most balanced results, leveraging the strengths of different algorithms for better generalization.
+___________________________________________________________________________________________________    
 
 Day 13 (Phase 1)
-    
+    ✔️ How KNN works for predicting categories and continuous values.
+    ✔️ Performance Analysis: Evaluating metrics like accuracy, R2 score, and mean squared error for better insights.
+    ✔️ GridSearchCV: Fine-tuning hyperparameters like n_neighbors and distance metrics to optimize performance.
+    ✔️ Pipelines: Streamlining preprocessing and model training into a seamless workflow.
+___________________________________________________________________________________________________    
+
+Day 14 (Phase 1):
+
+    --- Preprocessing: Scaled the features for better model performance.
+    --- Optimal Clusters: Used the Elbow Method to determine the ideal number of clusters.
+    --- Model Training: Leveraged KMeans from sklearn.cluster.
+    --- Visualization: Created a scatter plot to represent the clusters.
+    --- Evaluation: Assessed clustering quality with the Silhouette Score.
+
+___________________________________________________________________________________________________    
+
+Day 15 (Phase 1)
+    --- Dendrograms: Visualizing the hierarchical clustering process to determine the optimal number of clusters.
+    --- Hierarchical Clustering: Understanding how agglomerative clustering works, using it to group similar data points based on their features.
+    --- Davies-Bouldin Score: A metric to evaluate the clustering model by measuring intra-cluster similarity and inter-cluster differences (lower score = better clustering).
+    --- Silhouette Score: Measuring how similar each point is to its own cluster compared to other clusters (higher score = better clustering).
