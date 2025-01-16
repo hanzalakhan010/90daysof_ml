@@ -101,3 +101,6 @@ Day 15 (Phase 1)
     --- Hierarchical Clustering: Understanding how agglomerative clustering works, using it to group similar data points based on their features.
     --- Davies-Bouldin Score: A metric to evaluate the clustering model by measuring intra-cluster similarity and inter-cluster differences (lower score = better clustering).
     --- Silhouette Score: Measuring how similar each point is to its own cluster compared to other clusters (higher score = better clustering).
+Day 16 (Phase 1)
+
+    
