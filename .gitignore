@@ -1,1 +1,4 @@
-**/
+env/
+datasets/
+models/
+loaded_datasets/
