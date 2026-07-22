@@ -16,25 +16,25 @@ Resumed after the compute barrier that stalled this project at Day 24 (training 
 ```mermaid
 flowchart LR
     subgraph Source["chest_xray/ dataset"]
-        TR["train/NORMAL (1341)\ntrain/PNEUMONIA (3875)"]
-        TE["test/NORMAL (234)\ntest/PNEUMONIA (390)"]
+        TR["train/NORMAL (1341)<br/>train/PNEUMONIA (3875)"]
+        TE["test/NORMAL (234)<br/>test/PNEUMONIA (390)"]
     end
 
-    TR --> LOAD1["load_images()\ncv2 grayscale + resize 150x150"]
-    TE --> LOAD2["load_images()\ncv2 grayscale + resize 150x150"]
+    TR --> LOAD1["load_images()<br/>cv2 grayscale + resize 150x150"]
+    TE --> LOAD2["load_images()<br/>cv2 grayscale + resize 150x150"]
 
-    LOAD1 --> SHUF["random.shuffle()\n(images were appended class-by-class)"]
-    SHUF --> SPLIT["train_test_split()\n85/15, stratified, random_state=42"]
+    LOAD1 --> SHUF["random.shuffle()<br/>(images were appended class-by-class)"]
+    SHUF --> SPLIT["train_test_split()<br/>85/15, stratified, random_state=42"]
 
-    SPLIT --> XTRAIN["X_train / y_train\n4433 images"]
-    SPLIT --> XVAL["X_val / y_val\n783 images"]
-    LOAD2 --> XTEST["X_test / y_test\n624 images — HELD OUT,\nnever touched until final eval"]
+    SPLIT --> XTRAIN["X_train / y_train<br/>4433 images"]
+    SPLIT --> XVAL["X_val / y_val<br/>783 images"]
+    LOAD2 --> XTEST["X_test / y_test<br/>624 images — HELD OUT,<br/>never touched until final eval"]
 
     XTRAIN --> NORM["/255.0, cast float32"]
     XVAL --> NORM
     XTEST --> NORM
 
-    NORM --> FIT["model.fit(X_train, y_train,\nvalidation_data=(X_val, y_val))"]
+    NORM --> FIT["model.fit(X_train, y_train,<br/>validation_data=(X_val, y_val))"]
     XTEST -.->|"only in the final eval cell"| EVAL["model.evaluate(X_test, y_test)"]
 ```
 
@@ -48,20 +48,20 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    IN["Input\n150 x 150 x 1 (grayscale)"]
-    IN --> C1["Conv2D — 64 filters, 3x3, ReLU\n→ 148x148x64  (640 params)"]
-    C1 --> P1["MaxPool 2x2\n→ 74x74x64"]
+    IN["Input<br/>150 x 150 x 1 (grayscale)"]
+    IN --> C1["Conv2D — 64 filters, 3x3, ReLU<br/>→ 148x148x64  (640 params)"]
+    C1 --> P1["MaxPool 2x2<br/>→ 74x74x64"]
     P1 --> D1["Dropout 0.25"]
-    D1 --> C2["Conv2D — 64 filters, 3x3, ReLU\n→ 72x72x64  (36,928 params)"]
-    C2 --> P2["MaxPool 2x2\n→ 36x36x64"]
+    D1 --> C2["Conv2D — 64 filters, 3x3, ReLU<br/>→ 72x72x64  (36,928 params)"]
+    C2 --> P2["MaxPool 2x2<br/>→ 36x36x64"]
     P2 --> D2["Dropout 0.25"]
-    D2 --> C3["Conv2D — 64 filters, 3x3, ReLU\n→ 34x34x64  (36,928 params)"]
-    C3 --> P3["MaxPool 2x2\n→ 17x17x64"]
+    D2 --> C3["Conv2D — 64 filters, 3x3, ReLU<br/>→ 34x34x64  (36,928 params)"]
+    C3 --> P3["MaxPool 2x2<br/>→ 17x17x64"]
     P3 --> D3["Dropout 0.25"]
-    D3 --> FL["Flatten\n→ 18,496"]
-    FL --> DE1["Dense 128, ReLU\n(2,367,616 params)"]
+    D3 --> FL["Flatten<br/>→ 18,496"]
+    FL --> DE1["Dense 128, ReLU<br/>(2,367,616 params)"]
     DE1 --> D4["Dropout 0.5"]
-    D4 --> OUT["Dense 1, Sigmoid\n(129 params)\n→ P(PNEUMONIA)"]
+    D4 --> OUT["Dense 1, Sigmoid<br/>(129 params)<br/>→ P(PNEUMONIA)"]
 ```
 
 **Total: 2,442,241 params (9.32 MB), all trainable.** Loss: `binary_crossentropy`. Optimizer: `Adam(lr=1e-4)`. Metrics tracked: Recall + Precision (not just accuracy — with a ~3:1 class imbalance, accuracy alone hides exactly the failure mode found below).
