@@ -2,3 +2,5 @@ env/
 datasets/
 models/
 loaded_datasets/
+.ipynb_checkpoints/
+.virtual_documents/
